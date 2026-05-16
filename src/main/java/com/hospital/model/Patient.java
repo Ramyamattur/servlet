@@ -3,6 +3,7 @@ package com.hospital.model;
 import java.sql.Date;
 
 public class Patient {
+
     private int patientID;
     private String patientName;
     private int age;
@@ -11,10 +12,19 @@ public class Patient {
     private String ailment;
     private String assignedDoctor;
 
-    public Patient() {}
+    // Empty Constructor
+    public Patient() {
+    }
 
-    public Patient(int patientID, String patientName, int age, String gender,
-                   Date admissionDate, String ailment, String assignedDoctor) {
+    // Parameterized Constructor
+    public Patient(int patientID,
+                   String patientName,
+                   int age,
+                   String gender,
+                   Date admissionDate,
+                   String ailment,
+                   String assignedDoctor) {
+
         this.patientID = patientID;
         this.patientName = patientName;
         this.age = age;
@@ -24,24 +34,61 @@ public class Patient {
         this.assignedDoctor = assignedDoctor;
     }
 
-    public int getPatientID() { return patientID; }
-    public void setPatientID(int patientID) { this.patientID = patientID; }
+    // Getters and Setters
 
-    public String getPatientName() { return patientName; }
-    public void setPatientName(String patientName) { this.patientName = patientName; }
+    public int getPatientID() {
+        return patientID;
+    }
 
-    public int getAge() { return age; }
-    public void setAge(int age) { this.age = age; }
+    public void setPatientID(int patientID) {
+        this.patientID = patientID;
+    }
 
-    public String getGender() { return gender; }
-    public void setGender(String gender) { this.gender = gender; }
+    public String getPatientName() {
+        return patientName;
+    }
 
-    public Date getAdmissionDate() { return admissionDate; }
-    public void setAdmissionDate(Date admissionDate) { this.admissionDate = admissionDate; }
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
 
-    public String getAilment() { return ailment; }
-    public void setAilment(String ailment) { this.ailment = ailment; }
+    public int getAge() {
+        return age;
+    }
 
-    public String getAssignedDoctor() { return assignedDoctor; }
-    public void setAssignedDoctor(String assignedDoctor) { this.assignedDoctor = assignedDoctor; }
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Date getAdmissionDate() {
+        return admissionDate;
+    }
+
+    public void setAdmissionDate(Date admissionDate) {
+        this.admissionDate = admissionDate;
+    }
+
+    public String getAilment() {
+        return ailment;
+    }
+
+    public void setAilment(String ailment) {
+        this.ailment = ailment;
+    }
+
+    public String getAssignedDoctor() {
+        return assignedDoctor;
+    }
+
+    public void setAssignedDoctor(String assignedDoctor) {
+        this.assignedDoctor = assignedDoctor;
+    }
 }

@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-
     <display-name>HospitalWebApp</display-name>
-
+    <servlet>
+        <servlet-name>AddPatientServlet</servlet-name>
+        <servlet-class>com.hospital.servlet.AddPatientServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPatientServlet</servlet-name>
+        <url-pattern>/AddPatientServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdatePatientServlet</servlet-name>
+        <servlet-class>com.hospital.servlet.UpdatePatientServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdatePatientServlet</servlet-name>
+        <url-pattern>/UpdatePatientServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeletePatientServlet</servlet-name>
+        <servlet-class>com.hospital.servlet.DeletePatientServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeletePatientServlet</servlet-name>
+        <url-pattern>/DeletePatientServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DisplayPatientsServlet</servlet-name>
+        <servlet-class>com.hospital.servlet.DisplayPatientsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayPatientsServlet</servlet-name>
+        <url-pattern>/DisplayPatientsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReportServlet</servlet-name>
+        <servlet-class>com.hospital.servlet.ReportServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReportServlet</servlet-name>
+        <url-pattern>/ReportServlet</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-
 </web-app>

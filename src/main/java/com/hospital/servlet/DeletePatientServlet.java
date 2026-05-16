@@ -1,28 +1,62 @@
 package com.hospital.servlet;
 
 import com.hospital.dao.HospitalDAO;
+import com.hospital.model.Patient;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
-@WebServlet("/DeletePatientServlet")
+import java.io.IOException;
+import java.util.List;
+
 public class DeletePatientServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+
+    protected void doPost(HttpServletRequest request,
+                          HttpServletResponse response)
             throws ServletException, IOException {
-        String idStr = request.getParameter("patientID");
+
+        HospitalDAO dao = new HospitalDAO();
+
         try {
-            int id = Integer.parseInt(idStr);
-            HospitalDAO dao = new HospitalDAO();
-            boolean success = dao.deletePatient(id);
-            request.setAttribute("message", success ? "Patient deleted successfully!" : "Patient ID not found.");
-            request.setAttribute("msgType", success ? "success" : "danger");
+
+            int id = Integer.parseInt(
+                    request.getParameter("patientID"));
+
+            boolean ok = dao.deletePatient(id);
+
+            request.setAttribute(
+                    "message",
+                    ok ? "Patient deleted successfully!"
+                       : "Patient ID not found."
+            );
+
+            request.setAttribute(
+                    "msgType",
+                    ok ? "success" : "error"
+            );
+
         } catch (Exception e) {
-            request.setAttribute("message", "Invalid Patient ID.");
-            request.setAttribute("msgType", "danger");
+
+            request.setAttribute(
+                    "message",
+                    "Invalid Patient ID."
+            );
+
+            request.setAttribute(
+                    "msgType",
+                    "error"
+            );
         }
-        request.getRequestDispatcher("patientdelete.jsp").forward(request, response);
+
+        // Get updated patient list
+        List<Patient> patients = dao.getAllPatients();
+
+        // Send list to JSP
+        request.setAttribute("patients", patients);
+
+        request.getRequestDispatcher("patientdelete.jsp")
+               .forward(request, response);
     }
 }
